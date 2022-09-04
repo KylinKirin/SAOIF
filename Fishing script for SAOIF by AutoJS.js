@@ -1,4 +1,3 @@
-//!!UI SIZE 100!!
 function throwpole(){
   var p_x = 2130;
   var p_y = 760;
@@ -42,8 +41,8 @@ function hit(){
   var color3 = "#ffc8f29c";  //green 1640-1940
   var color4 = "#ffb3ffff";  //blue fish
   while(true){
-    var temp1 = $images.clip(captureScreen(),1725,220,2,500);
-    var temp2 = $images.clip(captureScreen(),1775,200,2,570);
+    var temp1 = $images.clip(captureScreen(),1725,220,10,500);
+    var temp2 = $images.clip(captureScreen(),1775,200,10,570);
 
     // var temp = $images.clip(captureScreen(),1685,200,50,570);
 
@@ -55,7 +54,7 @@ function hit(){
     // toastLog("BLUE:"+blue_fish);
   if(green_bar&&blue_fish){
     // -10<=parseFloat($images.findColor(temp,color3).y)-parseFloat($images.findColor(temp,color4).y)<=10
-    if(Math.abs(parseFloat(green_bar.y)-parseFloat(blue_fish.y))<3){
+    if(Math.abs(parseFloat(green_bar.y)-parseFloat(blue_fish.y))<5){
       click(2130,760);
       // sleep(100)
       // toastLog(parseFloat(green_bar.y)-parseFloat(blue_fish.y));
@@ -63,7 +62,7 @@ function hit(){
     }
   }  
   else{
-    toastLog("green or blue was not found...");
+    // toastLog("green or blue was not found...");
     temp1.recycle();
     temp2.recycle();
     // temp.recycle();
@@ -81,7 +80,7 @@ function hit(){
     }
     else{
       // pic1.recycle();
-      toastLog("white was not found");
+      // toastLog("white was not found");
       sleep(100);
       return false;
     }
@@ -104,7 +103,7 @@ function sub(){
 }
 
 function main(){
-  if(count>0){
+  if(count>1){
     sleep(150);
     toastLog("Completed "+count+" times");
     sleep(750);
@@ -135,6 +134,8 @@ waitForPackage(saoif);
 if (permission){
   setScreenMetrics(1080,2340);
   sleep(1000);
+  // console.show();
+  // console.setPosition(0, 0);
   main();
 }
 else{
