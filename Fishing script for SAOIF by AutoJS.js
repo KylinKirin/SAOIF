@@ -1,4 +1,4 @@
-
+//!!UI SIZE 100!!
 function throwpole(){
   var p_x = 2130;
   var p_y = 760;
@@ -55,7 +55,7 @@ function hit(){
     // toastLog("BLUE:"+blue_fish);
   if(green_bar&&blue_fish){
     // -10<=parseFloat($images.findColor(temp,color3).y)-parseFloat($images.findColor(temp,color4).y)<=10
-    if(Math.abs(parseFloat(green_bar.y)-parseFloat(blue_fish.y))<6){
+    if(Math.abs(parseFloat(green_bar.y)-parseFloat(blue_fish.y))<3){
       click(2130,760);
       // sleep(100)
       // toastLog(parseFloat(green_bar.y)-parseFloat(blue_fish.y));
@@ -93,18 +93,7 @@ function hit(){
 }
 
 function sub(){
-  var p_x = 2130;
-  var p_y = 760;
-  var color1 = "#ffbfe7e7"  // 1st color
-  var temp = $images.captureScreen();
-  sleep(50);
-  var c = images.pixel(temp,p_x,p_y);
-  if ($colors.isSimilar(color1,c,30)){
-    toastLog("Maybe failed, do again...");
-    sleep(500);
-    main();
-    return;
-    }
+
   var res = hit();
   if(res){
     main();
@@ -121,6 +110,7 @@ function main(){
     sleep(750);
   }
   toastLog("Start fishing...");
+  sleep(500);
   throwpole();
   ifeat();
   sleep(1500);
